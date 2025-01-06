@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -15,6 +16,15 @@ public class Order {
     private Long id;
     private String customerEmail;
     private BigDecimal amount;
+
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+    }
 }
+

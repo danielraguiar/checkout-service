@@ -2,14 +2,29 @@ spring:
   datasource:
     url: jdbc:h2:mem:checkoutdb
     driver-class-name: org.h2.Driver
+    username: sa
+    password: password
   jpa:
     hibernate:
       ddl-auto: update
+    show-sql: true
   rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/transactions
+    redis:
+      host: localhost
+      port: 6379
 
 server:
   port: 8080
+
+logging:
+  level:
+    com.example.checkout: DEBUG
+    org.springframework.data.mongodb: INFO
+    org.springframework.amqp: INFO
