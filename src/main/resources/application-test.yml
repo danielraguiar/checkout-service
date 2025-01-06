@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  rabbitmq:
+    host: localhost
+    port: 5672
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/test
+    redis:
+      host: localhost
+      port: 6379
